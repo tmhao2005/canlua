@@ -1,0 +1,21 @@
+{
+  "name": "canlua",
+  "displayName": "Can lua",
+  "expo": {
+    "name": "canlua",
+    "slug": "expo-template-bare",
+    "version": "1.0.0",
+    "sdkVersion": "38.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "bundleIdentifier": "tmhao.canlua",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "tmhao.canlua",
+      "versionCode": 1
+    }
+  }
+}
