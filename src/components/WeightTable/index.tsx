@@ -21,7 +21,6 @@ export const WeightTable: React.FunctionComponent<Props> = ({weights, style, ...
 
   return (
     <View style={{
-      // paddingVertical: 12,
       borderRadius: 8,
       backgroundColor: colors.faint,
       borderColor: colors.faint,
@@ -37,15 +36,10 @@ export const WeightTable: React.FunctionComponent<Props> = ({weights, style, ...
         const weight = weights[idx];
 
         return (
-          <View key={idx} style={{
-            // minHeight: 33,
-          }}
-          >
+          <View key={idx}>
             {weight ? <Weight weight={weight} {...rest} /> : <View style={{
-              backgroundColor: colors.background,
-              minHeight: 33,
-              paddingHorizontal: 12,
-              paddingVertical: 8,
+              backgroundColor: colors.faint,
+              minHeight: 40,
             }} />}
           </View>
         );

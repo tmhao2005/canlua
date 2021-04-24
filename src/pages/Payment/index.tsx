@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
  StyleSheet, View, Text
 } from 'react-native';
@@ -7,11 +7,15 @@ import {
 } from 'native-base';
 import { AntDesign } from '@expo/vector-icons';
 import { Link } from 'react-router-native';
+import { AppContext } from '../../context/App';
+import { sum } from '../../utils';
 
 export function Payment() {
+  const {weights} = useContext(AppContext);
+
   return (
     <Container>
-        <Header style={{
+        {/* <Header style={{
           justifyContent: "flex-start",
           alignItems: "center",
         }}>
@@ -28,10 +32,12 @@ export function Payment() {
           }}>
             Tính tiền
           </Text>
-        </Header>
+        </Header> */}
 
         <View style={styles.container}>
-          <Text>The payment view</Text>
+          <Text>
+            Tổng số kg hiện tại: {sum(weights)}
+          </Text>
         </View>
       </Container>
   );
@@ -41,7 +47,7 @@ const styles = StyleSheet.create({
   container: {
     position: "relative",
     flex: 1,
-    marginBottom: 20,
+    padding: 24,
     // borderColor: "blue",
     // borderWidth: 1,
   },

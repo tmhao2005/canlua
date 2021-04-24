@@ -38,7 +38,7 @@ const WeightComponent: React.ForwardRefRenderFunction<any, Props> = ({weight, on
       Animated.timing(
         animateText, 
         {
-          toValue: 14,
+          toValue: 18,
           duration: 1000,
           easing: Easing.linear as any,
         }
@@ -69,7 +69,7 @@ const WeightComponent: React.ForwardRefRenderFunction<any, Props> = ({weight, on
 
   return (
     <View style={{
-      minHeight: 32,
+      minHeight: 40,
       position: "relative",
       paddingHorizontal: 12,
       paddingVertical: 8,
@@ -77,13 +77,10 @@ const WeightComponent: React.ForwardRefRenderFunction<any, Props> = ({weight, on
       {edit ? (
         <View style={{
           position: "absolute",
-          zIndex: 1000,
           top: -9,
           // left: 0,
           // right: 0,
           // height: 60,
-          // borderColor: "red",
-          // borderWidth: 1,
         }}>
           <WeightInput ref={inputRef} defaultValue={`${weight.value}`} onFinish={handleFinish} onBlur={handleBlur} />
         </View>
@@ -94,10 +91,11 @@ const WeightComponent: React.ForwardRefRenderFunction<any, Props> = ({weight, on
             paddingVertical: 8,
             paddingHorizontal: 12,
             fontSize: animateText,
+            fontWeight: "bold",
           }} >{weight.value}</Animated.Text>
         ) : (
           <Text style={{
-            fontSize: 14,
+            fontSize: 18,
           }} onPress={handlePress}>{weight.value}</Text>
         )
       )}

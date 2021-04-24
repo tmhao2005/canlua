@@ -1,12 +1,11 @@
 import React from 'react';
-import { TextInputProps } from 'react-native';
 import {
 TextInputMask, TextInputMaskProps
 } from "react-native-masked-text";
 import { Theme } from '../Theme';
 
 interface Props extends Omit<TextInputMaskProps, 'type'> {
-  style?: TextInputProps
+  style?: TextInputMaskProps['style']
   onFinish?: (value: number) => any;
 }
 
@@ -52,17 +51,17 @@ const WeightInputComponent: React.ForwardRefRenderFunction<any, Props> = ({defau
     <TextInputMask
       ref={inputRef}
       style={{
+        minWidth: 80,
         paddingVertical: 8,
         paddingHorizontal: 12,
         borderWidth: 1,
         borderStyle: 'solid',
         borderColor: colors.subtle,
-        minHeight: 40,
-        minWidth: 80,
-        fontSize: 28,
+        minHeight: 38,
+        fontSize: 24,
         borderRadius: 4,
-        backgroundColor: "white",
-        ...style,
+        backgroundColor: 'white',
+        ...style as object,
       }}
       type="custom"
       value={actualValue}

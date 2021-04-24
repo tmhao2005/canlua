@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import {
- TouchableOpacity, ButtonProps, Text, ViewStyle
+ TouchableOpacity, ButtonProps, Text, ViewStyle, TouchableOpacityProps
 } from "react-native";
 import {
  Colors, Theme
@@ -8,7 +8,7 @@ import {
 
 type Size = 'md' | 'lg';
 
-interface Props extends ButtonProps {
+interface Props extends TouchableOpacityProps {
   size?: Size,
   color?: keyof Colors;
 }
@@ -22,17 +22,17 @@ const styles: Record<Size, ViewStyle> = {
   }
 };
 
-const textColor = (color: keyof Colors, accentColor: boolean) => {
-  if (color === "background") {
-    return "subtle";
-  } else if (color === "accent") {
-    return accentColor ? "complementary" : "background";
-  } else {
-    return "contrast";
-  }
-};
+// const textColor = (color: keyof Colors, accentColor: boolean) => {
+//   if (color === "background") {
+//     return "subtle";
+//   } else if (color === "accent") {
+//     return accentColor ? "complementary" : "background";
+//   } else {
+//     return "contrast";
+//   }
+// };
 
-export const Button: React.FunctionComponent<Props> = ({color = "background", size = 'md', children, ...rest}) => {
+export const Button: React.FunctionComponent<Props> = ({color = "background", size = 'md', style, children, ...rest}) => {
   const {colors} = useContext(Theme);
 
   return (
@@ -48,6 +48,7 @@ export const Button: React.FunctionComponent<Props> = ({color = "background", si
         }`,
         backgroundColor: `${colors[color]}`,
         ...styles[size],
+        ...style as object,
       }}
       {...rest}
     >
